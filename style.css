@@ -1,0 +1,145 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.node {
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+.start_node {
+    background-color: red;
+}
+.end_node {
+    background-color: green;
+}
+.isVisited {
+    background-color: pink !important;
+}
+.wall {
+    background-color: black;
+    animation-name: wall;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+}
+.node:hover {
+    background-color: black;
+}
+@keyframes wall {
+    from {
+        transform: scale(0.3);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes passage {
+    0% {
+        background-color: #1e2431;
+        transform: scale(1);
+        border: 0;
+    }
+    50% {
+        transform: scale(0.3);
+        border: 0;
+    }
+    100% {
+        transform: scale(1);
+        border: 1px solid rgba(0, 190, 218, 0.75);
+    }
+}
+.node-current {
+    border: 1px solid rgba(207, 221, 239, 0.65);
+    background-color: rgba(17, 104, 217, 1);
+    animation-name: fadein;
+    opacity: 0.75;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes fadein {
+    from {
+        transform: scale(1);
+        background-color: #ffd400;
+        opacity: 1;
+        border-radius: 100%;
+        border: 1px solid white;
+        width: 25px;
+    }
+    to {
+        transform: scale(0.4);
+        background-color: rgba(17, 104, 217, 0.75);
+        opacity: 0.75;
+        border-radius: 100%;
+    }
+}
+.node-check {
+    background-color: rgba(0, 190, 218, 0.75);
+    border: 1px solid rgba(207, 221, 239, 0.65);
+    animation: check 1s ease-in-out 0s, pulse 1s ease-in-out 7s 3;
+}
+@keyframes pulse {
+    0% {
+        background-color: rgba(0, 190, 218, 0.75);
+    }
+    50% {
+        background-color: rgba(17, 104, 217, 0.75);
+    }
+    100% {
+        background-color: rgba(0, 190, 218, 0.75);
+    }
+}
+
+@keyframes check {
+    0% {
+        transform: scale(0.3) rotate(30);
+        background-color: rgba(17, 104, 217, 0.75);
+        opacity: 0.75;
+        /* border:0; */
+        border: 1px solid white;
+    }
+
+    25% {
+        transform: rotate(60);
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(180);
+        background-color: rgba(0, 190, 218, 0.75);
+        transform: rotate(90);
+    }
+
+    75% {
+        background-color: rgba(17, 104, 217, 0.75);
+        border: 1px solid white;
+        /* border:0; */
+    }
+
+    100% {
+        transform: scale(1) rotate(360);
+        border: 1px solid white;
+        /* border:0; */
+        background-color: rgba(0, 190, 218, 0.75);
+    }
+}
+.node-path {
+    background-color: #ffd400 ;
+    animation: wall 0.3s ease-in-out 0s, path-pulse 1s ease-in-out 10s 10;
+    border: 1px solid white ;
+}
+@keyframes path-pulse {
+    0% {
+        background-color: #ffd400;
+    }
+    50% {
+        background-color: #eba400;
+    }
+    100% {
+        background-color: #ffd400;
+    }
+}
