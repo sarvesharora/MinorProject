@@ -3,10 +3,10 @@ let cols = 40;
 nodes = [];
 let main_area = document.getElementById("main_area");
 
-const rs = 0,
-    cs = 0,
-    re = 19,
-    ce = 39;
+const rs = 10,
+    cs = 10,
+    re = 15,
+    ce = 30;
 let start_wall = false;
 window.addEventListener( "mouseup", () =>
 {
