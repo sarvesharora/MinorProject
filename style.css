@@ -81,6 +81,54 @@ body {
     border: 1px solid rgba(207, 221, 239, 0.65);
     animation: check 1s ease-in-out 0s, pulse 1s ease-in-out 7s 3;
 }
+.node-check-backward{
+  background-color: #13EBA2;
+  border:1px solid rgba(207,221,239,0.65);
+  animation: check-backward 1s ease-in-out 0s, pulse-backward 1s ease-in-out 14s 3;
+}
+@keyframes check-backward{
+  0%  {
+    transform: scale(.3) rotate(30);
+  background-color: #05AC72;
+    opacity: 0.75;
+    border:1;
+  }
+
+  25% {
+    transform: rotate(60);
+    opacity:0.90;
+  }
+
+  50%  {
+    opacity:1;
+    transform:scale(1.2) rotate(180);
+    background-color: #13EBA2;
+    transform: rotate(90);
+  }
+
+  75%  {
+  background-color: #05AC72;
+    border:1;
+  }
+
+  100%  {
+    transform: scale(1.0) rotate(360);
+    border:1;
+    background-color: #13EBA2;
+  }
+}
+@keyframes pulse-backward{
+  0% {
+    background-color: #13EBA2;
+  }
+  50% {
+  background-color: #05AC72;
+  }
+  100% {
+    background-color: #13EBA2;
+  }
+}
+
 @keyframes pulse {
     0% {
         background-color: rgba(0, 190, 218, 0.75);

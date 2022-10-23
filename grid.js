@@ -5,7 +5,7 @@ let main_area = document.getElementById("main_area");
 
 const rs = 10,
     cs = 10,
-    re = 15,
+    re = 10,
     ce = 30;
 let start_wall = false;
 window.addEventListener( "mouseup", () =>

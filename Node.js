@@ -1,5 +1,5 @@
 class Node {
-    constructor(divRef, row, col,isWall = false,isStart = false, isEnd = false, isVisited = false) {
+    constructor(divRef, row, col,isWall = false,isStart = false, isEnd = false, isVisited = false,weight = 0) {
         this.divRef = divRef;
         this.row = row;
         this.col = col;
@@ -7,5 +7,6 @@ class Node {
         this.isStart = isStart;
         this.isEnd = isEnd;
         this.isVisited = isVisited;
+        this.weight = weight;
     }
 }

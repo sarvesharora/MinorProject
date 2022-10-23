@@ -22,9 +22,18 @@ function isDestination ( r, c, endr, endc )
     return false;
 }
 
-function calculateHValue ( r, c, endr, endc )
+function calculateHValue ( r, c, endr, endc, isAstar )
 {
-    return Math.abs( r - endr ) + Math.abs( c - endc );
+    if ( isAstar ==1)
+    {
+        return Math.abs( r - endr ) + Math.abs( c - endc );
+    } else if(isAstar == 2)
+    {
+        return Math.abs(r - rs) + Math.abs(c - cs);
+    } else
+    {
+        return 0;
+    }
 }
 async function tracePath (cellDetails,row,col)
 {
@@ -49,7 +58,7 @@ async function tracePath (cellDetails,row,col)
         nodes[p[0]][p[1]].divRef.classList.add("node-path");
     }
 }
-async function aStarSearch ( nodes, sr, sc, er, ec )
+async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar)
 {
     let n = nodes.length, m = nodes[0].length;
     let closedList = [], cellDetails = [];
@@ -109,7 +118,7 @@ async function aStarSearch ( nodes, sr, sc, er, ec )
                 else if ( closedList[newi][newj] == false && isValid( newi, newj ) == true )
                 {
 					gNew = cellDetails[i][j].g + 1.0;
-					hNew = calculateHValue(newi, newj, er,ec);
+					hNew = calculateHValue(newi, newj, er,ec,isAstar);
                     fNew = gNew + hNew;
                     if ( cellDetails[newi][newj].f == Number.MAX_VALUE || cellDetails[newi][newj].f > fNew )
                     {
@@ -133,5 +142,5 @@ async function aStarSearch ( nodes, sr, sc, er, ec )
 function astarr ()
 {
     reuse();
-    aStarSearch(nodes, rs, cs,re,ce);
+    aStarSearch(nodes, rs, cs,re,ce,1);
 }

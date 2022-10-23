@@ -67,7 +67,7 @@ async function bibfs (nodes,sr,sc,er,ec)
                     V[newx][newy] = 2;
                     nodes[newx][newy].divRef.classList.add("node-current");
                     setTimeout(() => {
-                        nodes[newx][newy].divRef.classList.add("node-check");
+                        nodes[newx][newy].divRef.classList.add("node-check-backward");
                     }, 1500);
                     nodes[newx][newy].isVisited = true;
                     let temp = [...fri[1]];

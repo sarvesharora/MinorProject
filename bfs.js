@@ -8,7 +8,7 @@ async function bfs ( nodes, sr, sc )
     let X = [1, -1, 0, 0];
     while ( queue.length != 0 )
     {
-        await new Promise((done) => setTimeout(() => done(), 50));  
+        await new Promise((done) => setTimeout(() => done(), 100));  
         let si = queue.length;
         for (let j = 0; j < si; j++) {
             let fri = queue.shift(); 
