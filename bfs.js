@@ -1,5 +1,5 @@
 let path = []
-async function bfs ( nodes, sr, sc )
+async function bfs ( nodes, sr, sc ,time)
 {
     let n = nodes.length, m = nodes[0].length;
     let queue = [];
@@ -8,7 +8,7 @@ async function bfs ( nodes, sr, sc )
     let X = [1, -1, 0, 0];
     while ( queue.length != 0 )
     {
-        await new Promise((done) => setTimeout(() => done(), 100));  
+        await new Promise((done) => setTimeout(() => done(), time));  
         let si = queue.length;
         for (let j = 0; j < si; j++) {
             let fri = queue.shift(); 
@@ -61,6 +61,14 @@ async function bfsr ()
 {
     path = [];
     reuse();
-    await bfs( nodes, rs, cs );
+    let time = 10;
+    if (speed == 0) {
+        time = 1000;
+    } else if (speed == 1) {
+        time = 500;
+    } else {
+        time = 100;
+    }
+    await bfs( nodes, rs, cs ,time);
     make_path_bfs();
 }

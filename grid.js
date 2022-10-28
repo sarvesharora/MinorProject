@@ -2,7 +2,7 @@ let rows = 27;
 let cols = 60;
 nodes = [];
 let main_area = document.getElementById("main_area");
-
+let speed = 2;
 let rs = 15,
     cs = 10,
     re = 10,

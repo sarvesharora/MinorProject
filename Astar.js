@@ -62,7 +62,7 @@ async function tracePath (cellDetails,row,col)
         nodes[p[0]][p[1]].divRef.classList.add("node-path");
     }
 }
-async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar)
+async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar,time)
 {
     let n = nodes.length, m = nodes[0].length;
     let closedList = [], cellDetails = [];
@@ -91,7 +91,7 @@ async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar)
     let foundDest = false;
     while ( openList.length != 0 )
     {
-        await new Promise((done) => setTimeout(() => done(), 10));
+        await new Promise((done) => setTimeout(() => done(), time));
         openList.sort();
         let p = openList.shift();
         // console.log( p ,openList.length);
@@ -146,5 +146,16 @@ async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar)
 function astarr ()
 {
     reuse();
-    aStarSearch(nodes, rs, cs,re,ce,1);
+    let time = 10;
+    if ( speed == 0 )
+    {
+        time = 100;
+    } else if ( speed == 1 )
+    {
+        time = 50;
+    } else
+    {
+        time = 10;
+    }
+    aStarSearch(nodes, rs, cs,re,ce,1,time);
 }

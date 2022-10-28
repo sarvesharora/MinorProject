@@ -1,8 +1,24 @@
 function dijkstrar() {
     reuse();
-    aStarSearch(nodes, rs, cs, re, ce, 0);
+    let time = 10;
+    if (speed == 0) {
+        time = 100;
+    } else if (speed == 1) {
+        time = 50;
+    } else {
+        time = 10;
+    }
+    aStarSearch(nodes, rs, cs, re, ce, 0, time);
 }
 function bestfirstsearchr() {
     reuse();
-    aStarSearch(nodes, rs, cs, re, ce, 2);
+    let time = 10;
+    if (speed == 0) {
+        time = 100;
+    } else if (speed == 1) {
+        time = 50;
+    } else {
+        time = 10;
+    }
+    aStarSearch(nodes, rs, cs, re, ce, 2, time);
 }

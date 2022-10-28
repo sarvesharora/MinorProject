@@ -1,6 +1,6 @@
 path = []
 
-async function dfs ( nodes, sr, sc )
+async function dfs ( nodes, sr, sc ,time)
 {
     let Y = [0, 0, -1, 1];
     let X = [1, -1, 0, 0];
@@ -21,8 +21,8 @@ async function dfs ( nodes, sr, sc )
         const newr = sr + X[i], newc = sc + Y[i];
         if ( newr >= 0 && newr < n && newc >= 0 && newc < m && nodes[newr][newc].isVisited == false &&nodes[newr][newc].isWall==false)
         {
-            await new Promise(done => setTimeout(() => done(), 20));  
-            const re = await dfs( nodes, newr, newc );
+            await new Promise(done => setTimeout(() => done(), time));  
+            const re = await dfs( nodes, newr, newc ,time);
             if ( re )
             {
                 path.push( nodes[newr][newc] );
@@ -35,7 +35,15 @@ async function dfs ( nodes, sr, sc )
 async function dfsr() {
     reuse();
     path = []
-    let res = await dfs(nodes, rs, cs);
+    let time = 10;
+    if (speed == 0) {
+        time = 200;
+    } else if (speed == 1) {
+        time = 100;
+    } else {
+        time = 10;
+    }
+    let res = await dfs(nodes, rs, cs,time);
     make_path_dfs();
 }
 async function make_path_dfs() {

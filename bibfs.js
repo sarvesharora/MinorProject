@@ -1,5 +1,5 @@
 let path1 = [],path2 = [];
-async function bibfs (nodes,sr,sc,er,ec)
+async function bibfs (nodes,sr,sc,er,ec,time)
 {
     let n = nodes.length, m = nodes[0].length;
     let q1 = [], q2 = [];
@@ -16,7 +16,7 @@ async function bibfs (nodes,sr,sc,er,ec)
     V[er][ec] = 2;
     while ( q1.length != 0 || q2.length != 0 )
     {
-        await new Promise((done) => setTimeout(() => done(), 50));  
+        await new Promise((done) => setTimeout(() => done(), time));  
         //q1
         let siq1 = q1.length;
         for ( let i = 0; i < siq1; i++ )
@@ -82,7 +82,14 @@ async function bibfs (nodes,sr,sc,er,ec)
 async function bibfsr ()
 {
     let n = nodes.length, m = nodes[0].length;
-    
+    let time = 10;
+    if (speed == 0) {
+        time = 1000;
+    } else if (speed == 1) {
+        time = 500;
+    } else {
+        time = 100;
+    }
     path1 = new Array();
     path2 = new Array();
     for ( let i = 0; i < n; i++ )
@@ -91,7 +98,7 @@ async function bibfsr ()
         path2[i] = new Array();
     }
     reuse();
-    let ans = await bibfs( nodes, rs, cs, re, ce );
+    let ans = await bibfs( nodes, rs, cs, re, ce ,time);
     if ( ans )
     {
         make_path_bibfs( ans );
