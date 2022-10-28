@@ -7,6 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
         <script defer type="text/javascript" src="Node.js"></script>
         <script defer type="text/javascript" src="grid.js"></script>
         <script defer type="text/javascript" src="dfs.js"></script>
@@ -17,15 +22,51 @@
     </head>
 
     <body>
-        <div id="main_area">
 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Path-Finding Algorithms</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" onclick="toggle_start_node()">Start
+                                Node</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" onclick="toggle_end_node()">End Node</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                                Path Finding Algorithms
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" onclick="dfsr()" href="#">depth first search</a></li>
+                                <li><a class="dropdown-item" onclick="bfsr()" href="#">breadth first search</a></li>
+                                <li><a class="dropdown-item" onclick="astarr()" href="#">A*</a></li>
+                                <li><a class="dropdown-item" onclick="bibfsr()" href="#">bi bfs</a></li>
+                                <li><a class="dropdown-item" onclick="dijkstrar()" href="#">dikstra</a></li>
+                                <li><a class="dropdown-item" onclick="bestfirstsearchr()" href="#">best first search</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline-warning" onclick="reuse()">clear</button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main_area">
         </div>
-        <button onclick="dfsr()">dfs</button>
-        <button onclick="bfsr()">bfs</button>
-        <button onclick="bibfsr()">bibfs</button>
-        <button onclick="astarr()">a*</button>
-        <button onclick="dijkstrar()">dijkstra</button>
-        <button onclick="bestfirstsearchr()">bestfirstsearchr</button>
+
     </body>
 
 </html>

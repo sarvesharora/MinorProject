@@ -40,15 +40,15 @@ async function dfsr() {
 }
 async function make_path_dfs() {
     console.log( "hi" );
-    console.log( path );
+    // console.log( path );
     path.reverse();
-    console.log( path );
+    // console.log( path );
     for ( let i = 0; i < path.length; i++ )
     {
         path[i].divRef.classList.remove("node-current");
         path[i].divRef.classList.remove("node-check");
         await new Promise( ( done ) => setTimeout( () => done(), 50 ) );
-        console.log( path );
+        // console.log( path );
         path[i].divRef.classList.add("node-path");
     }
 }

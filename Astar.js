@@ -26,12 +26,16 @@ function calculateHValue ( r, c, endr, endc, isAstar )
 {
     if ( isAstar ==1)
     {
+        //greedybestfirstsearch
         return Math.abs( r - endr ) + Math.abs( c - endc );
     } else if(isAstar == 2)
     {
+        //astar
         return Math.abs(r - rs) + Math.abs(c - cs);
     } else
     {
+        //dijkstra
+        // return Math.abs(r - endr) + Math.abs(c - endc)+Math.abs(r - rs) + Math.abs(c - cs);
         return 0;
     }
 }
@@ -72,10 +76,10 @@ async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar)
             cellDetails[i][j] = new cell( -1, -1, Number.MAX_VALUE, Number.MAX_VALUE, Number.MAX_VALUE);
         }
     }
-    console.log( closedList );
-    console.log( cellDetails );
+    // console.log( closedList );
+    // console.log( cellDetails );
     let i = sr, j = sc;
-    console.log( typeof( i ) );
+    // console.log( typeof( i ) );
 	cellDetails[i][j].f = 0.0;
 	cellDetails[i][j].g = 0.0;
 	cellDetails[i][j].h = 0.0;
@@ -87,7 +91,7 @@ async function aStarSearch ( nodes, sr, sc, er, ec ,isAstar)
     let foundDest = false;
     while ( openList.length != 0 )
     {
-        await new Promise((done) => setTimeout(() => done(), 50));
+        await new Promise((done) => setTimeout(() => done(), 10));
         openList.sort();
         let p = openList.shift();
         // console.log( p ,openList.length);

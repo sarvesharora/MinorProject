@@ -1,4 +1,4 @@
-class Node {
+class Noden {
     constructor(divRef, row, col,isWall = false,isStart = false, isEnd = false, isVisited = false,weight = 0) {
         this.divRef = divRef;
         this.row = row;
